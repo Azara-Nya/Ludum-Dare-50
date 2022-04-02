@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Coffee : MonoBehaviour
 {
-    [SerializeField] private float CoffeePower = 3f;
+    [SerializeField] private float CoffeePower = 2f;
+    private bool Giorno = false;
     Sleeper Sz;
 
     void Awake()
@@ -16,8 +17,16 @@ public class Coffee : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Giorno = true;
+        }
+    }
+    void Update()
+    {
+        if (Giorno)
+        {
             Sz.timer -= CoffeePower;
             Destroy(gameObject);
         }
     }
+
 }

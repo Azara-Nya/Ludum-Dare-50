@@ -12,14 +12,16 @@ public class Sleeper : MonoBehaviour
 
     void Start()
     {
-        timer = -2f;
         Blackout.SetActive(false);
     }
 
     void Update()
     {
-        Debug.Log(timer);
-        if (timer >= MaxTime)
+        if (timer < 0)
+        {
+            timer = 0f;
+        }
+        else if (timer >= MaxTime)
         {
             Blackout.SetActive(true);
             IsAsleep = true;

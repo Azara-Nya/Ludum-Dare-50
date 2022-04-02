@@ -6,8 +6,8 @@ public class Work : MonoBehaviour
 {
     [SerializeField] private float MaxTime = 3f;
     [SerializeField] private float timer;
-    public bool PingTime = false;
-    public bool AdvanceTime = false;
+    public int PingCount;
+    bool AdvanceTime = false;
 
     void Update()
     {
@@ -15,10 +15,9 @@ public class Work : MonoBehaviour
         {
             if (timer >= MaxTime)
             {
-                PingTime = true;
+                PingCount += 1;
                 Debug.Log("Ding");
                 Destroy(gameObject);
-                PingTime = false;
             }
             else
             {
