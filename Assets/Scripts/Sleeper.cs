@@ -7,7 +7,7 @@ public class Sleeper : MonoBehaviour
 {
     [SerializeField] private GameObject Blackout;
     [SerializeField] private float MaxTime = 15f;
-    private float timer = 0f;
+    public float timer = 0f;
     public bool IsAsleep = false;
 
     void Start()
