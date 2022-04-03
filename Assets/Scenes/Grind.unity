@@ -1084,6 +1084,7 @@ GameObject:
   - component: {fileID: 618448728}
   - component: {fileID: 618448729}
   - component: {fileID: 618448730}
+  - component: {fileID: 618448731}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1127,6 +1128,7 @@ MonoBehaviour:
   rb: {fileID: 618448724}
   MoveSpeed: 5
   mn: {fileID: 1251751494}
+  Andy: {fileID: 618448731}
   Sz: {fileID: 985729139}
 --- !u!212 &618448726
 SpriteRenderer:
@@ -1258,6 +1260,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Text: {fileID: 718673611}
+--- !u!95 &618448731
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618448723}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 916ecf8249d593c41a710bdd2fed1096, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &657616596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,12 +1363,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 98
-  m_fontSizeBase: 98
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 90
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -1639,12 +1660,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
+  m_fontSize: 139.35
   m_fontSizeBase: 200
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 150
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -1898,30 +1919,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1043070866 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 393971634743940643, guid: 21bd9c8cb6fc7fe42954ea8ea982d747, type: 3}
-  m_PrefabInstance: {fileID: 393971634559273066}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1043070867
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043070866}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 947ac902dca006943a20d419e0cf02a7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1060865049
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,7 +2107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1251751491
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2845,12 +2842,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 90
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -4571,7 +4568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 393971634743940643, guid: 21bd9c8cb6fc7fe42954ea8ea982d747, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 393971634743940644, guid: 21bd9c8cb6fc7fe42954ea8ea982d747, type: 3}
       propertyPath: m_RootOrder
@@ -4616,22 +4613,6 @@ PrefabInstance:
     - target: {fileID: 393971634743940644, guid: 21bd9c8cb6fc7fe42954ea8ea982d747, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 393971634743940647, guid: 21bd9c8cb6fc7fe42954ea8ea982d747, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -8911457371446472361, guid: a8c07a0f0eda2f24abdef279a58066ad, type: 3}
-    - target: {fileID: 393971634743940647, guid: 21bd9c8cb6fc7fe42954ea8ea982d747, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 393971634743940647, guid: 21bd9c8cb6fc7fe42954ea8ea982d747, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 393971634743940647, guid: 21bd9c8cb6fc7fe42954ea8ea982d747, type: 3}
-      propertyPath: m_Color.r
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21bd9c8cb6fc7fe42954ea8ea982d747, type: 3}
