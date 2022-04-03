@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] private string SceneToLoad;
     [SerializeField] private float TranstionTime = 0f;
+    public bool CanPlay=false;
     public void LoadScene()
     {
         StartCoroutine(Loader());
@@ -18,6 +19,10 @@ public class Menu : MonoBehaviour
     public void StartingAnimation()
     {
         StartCoroutine(Animm());
+    }
+    public void Play()
+    {
+        CanPlay = !CanPlay;
     }
     IEnumerator Quiter()
     {
@@ -36,4 +41,5 @@ public class Menu : MonoBehaviour
         //animation * alot
         yield return new WaitForSeconds(TranstionTime);
     }
+
 }

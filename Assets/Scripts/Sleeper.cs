@@ -7,6 +7,7 @@ public class Sleeper : MonoBehaviour
 {
     [SerializeField] private GameObject Blackout;
     [SerializeField] private float MaxTime = 15f;
+    [SerializeField] private Menu mn;
     public float timer = 0f;
     public bool IsAsleep = false;
 
@@ -17,18 +18,21 @@ public class Sleeper : MonoBehaviour
 
     void Update()
     {
-        if (timer < 0)
+        if (mn.CanPlay)
         {
-            timer = 0f;
-        }
-        else if (timer >= MaxTime)
-        {
-            Blackout.SetActive(true);
-            IsAsleep = true;
-        }
-        else
-        {
-            timer += Time.fixedDeltaTime;
+            if (timer < 0)
+            {
+                timer = 0f;
+            }
+            else if (timer >= MaxTime)
+            {
+                Blackout.SetActive(true);
+                IsAsleep = true;
+            }
+            else
+            {
+                timer += Time.fixedDeltaTime;
+            }
         }
     }
 }

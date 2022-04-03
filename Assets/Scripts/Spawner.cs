@@ -14,6 +14,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float MaxTimeC = 3.5f;
     [SerializeField] private int MaxCoffee = 3;
     [SerializeField] private int MaxWork = 3;
+    [SerializeField] private Menu mn;
     private GameObject SpawnerPoint;
     private GameObject SpawnerPointW;
     private int index;
@@ -26,15 +27,16 @@ public class Spawner : MonoBehaviour
     Work Wk;
     Coffee Ce;
     Sleeper Sz;
-    void Start()
-    {
-        Invoke("Spanwer", 2f);
-        index = Random.Range(0, SpawnPoints.Length);
-        indexW = Random.Range(0, SpawnPoints.Length);
-    }
+
 
     void Update()
     {
+        if (mn.CanPlay)
+        {
+            Invoke("Spanwer", 2f);
+            index = Random.Range(0, SpawnPoints.Length);
+            indexW = Random.Range(0, SpawnPoints.Length);
+        }
         Wk = FindObjectOfType<Work>();
         if (Wk == null)
         {
@@ -84,5 +86,5 @@ public class Spawner : MonoBehaviour
             Invoke("Spanwer", spawnDelayCoffee);
         }
     }
-
 }
+

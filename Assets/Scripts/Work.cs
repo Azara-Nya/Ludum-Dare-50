@@ -6,8 +6,14 @@ public class Work : MonoBehaviour
 {
     [SerializeField] private float MaxTime = 3f;
     [SerializeField] private float timer;
+    [SerializeField] private Animator Andy;
     bool AdvanceTime = false;
 
+
+    void Start()
+    {
+        Andy.speed = 0;
+    }
     void Update()
     {
         if (AdvanceTime)
@@ -29,6 +35,7 @@ public class Work : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             AdvanceTime = true;
+            Andy.speed = 1;
         }
     }
     void OnTriggerExit2D(Collider2D other)
@@ -36,6 +43,7 @@ public class Work : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             AdvanceTime = false;
+            Andy.speed = 0;
         }
     }
 
