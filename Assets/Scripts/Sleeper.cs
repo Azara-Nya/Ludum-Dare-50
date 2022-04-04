@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Sleeper : MonoBehaviour
 {
     [SerializeField] private GameObject Blackout;
+    [SerializeField] private Animator BOC;
     [SerializeField] private float MaxTime = 15f;
     [SerializeField] private Menu mn;
     public float timer = 0f;
@@ -14,6 +15,10 @@ public class Sleeper : MonoBehaviour
     void Start()
     {
         Blackout.SetActive(false);
+    }
+    public void Sleping()
+    {
+        IsAsleep = !IsAsleep;
     }
 
     void Update()
@@ -26,13 +31,18 @@ public class Sleeper : MonoBehaviour
             }
             else if (timer >= MaxTime)
             {
-                Blackout.SetActive(true);
                 IsAsleep = true;
+                Blackout.SetActive(true);
+                BOC.SetBool("EndWork", true);
             }
             else
             {
                 timer += Time.fixedDeltaTime;
             }
+        }
+        else
+        {
+            timer = 0f;
         }
     }
 }

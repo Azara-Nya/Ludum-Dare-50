@@ -7,7 +7,8 @@ public class Score : MonoBehaviour
     public static int Points = 0;
     private int score;
     [SerializeField] private TextMeshProUGUI Text;
-    void Awake()
+    [SerializeField] private Sleeper Sz;
+    void Start()
     {
         Points = 0;
     }
@@ -15,7 +16,14 @@ public class Score : MonoBehaviour
 
     void Update()
     {
-        score = Points;
-        Text.text = $"Score: {score}";
+        if (!Sz.IsAsleep)
+        {
+            score = Points;
+            Text.text = $"Score: {score}";
+        }
+        else
+        {
+            Points = 0;
+        }
     }
 }
