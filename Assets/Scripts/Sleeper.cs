@@ -8,9 +8,11 @@ public class Sleeper : MonoBehaviour
     [SerializeField] private GameObject Blackout;
     [SerializeField] private Animator BOC;
     [SerializeField] private float MaxTime = 15f;
+    [SerializeField] private AudioSource As;
     [SerializeField] private Menu mn;
     public float timer = 0f;
     public bool IsAsleep = false;
+    private bool gate;
 
     void Start()
     {
@@ -32,6 +34,7 @@ public class Sleeper : MonoBehaviour
             else if (timer >= MaxTime)
             {
                 IsAsleep = true;
+                StartCoroutine(SFXER());
                 Blackout.SetActive(true);
                 BOC.SetBool("EndWork", true);
             }
@@ -43,6 +46,17 @@ public class Sleeper : MonoBehaviour
         else
         {
             timer = 0f;
+            gate=false;
+        }
+    }
+
+    IEnumerator SFXER()
+    {
+        if(!gate)
+        {
+            As.Play();
+            yield return new WaitForSeconds(As.clip.length);
+            gate=true;
         }
     }
 }

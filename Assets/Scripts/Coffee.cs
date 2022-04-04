@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Coffee : MonoBehaviour
 {
     [SerializeField] private float CoffeePower = 2f;
+    [SerializeField] private AudioSource AS;
     private bool Giorno = false;
     Sleeper Sz;
 
@@ -24,9 +26,16 @@ public class Coffee : MonoBehaviour
     {
         if (Giorno)
         {
-            Sz.timer -= CoffeePower;
-            Destroy(gameObject);
+            StartCoroutine(SFXER());
         }
     }
 
+    IEnumerator SFXER()
+    {
+        Giorno = false;
+        Sz.timer -= CoffeePower;
+        AS.Play();
+        yield return new WaitForSeconds(AS.clip.length);
+        Destroy(gameObject);
+    }
 }

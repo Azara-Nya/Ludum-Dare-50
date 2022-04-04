@@ -7,6 +7,7 @@ public class Work : MonoBehaviour
     [SerializeField] private float MaxTime = 3f;
     [SerializeField] private float timer;
     [SerializeField] private Animator Andy;
+    [SerializeField] private AudioSource As;
     bool AdvanceTime = false;
 
 
@@ -36,6 +37,7 @@ public class Work : MonoBehaviour
         {
             AdvanceTime = true;
             Andy.speed = 1;
+            StartCoroutine(SFXER());
         }
     }
     void OnTriggerExit2D(Collider2D other)
@@ -44,7 +46,25 @@ public class Work : MonoBehaviour
         {
             AdvanceTime = false;
             Andy.speed = 0;
+            StopCoroutine(SFXER());
         }
     }
+
+    IEnumerator SFXER()
+    {
+        As.Play();
+        yield return new WaitForSeconds(0.5f);
+        As.Play();
+        yield return new WaitForSeconds(0.5f);
+        As.Play();
+        yield return new WaitForSeconds(0.5f);
+        As.Play();
+        yield return new WaitForSeconds(0.5f);
+        As.Play();
+        yield return new WaitForSeconds(0.5f);
+        As.Play();
+        yield return new WaitForSeconds(0.5f);
+    }
+
 
 }
