@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     {
         if (!Sz.IsAsleep && mn.CanPlay)
         {
+            Andy.SetBool("IsAwake", true);
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
 
@@ -41,6 +42,11 @@ public class Player : MonoBehaviour
             }
 
             rb.MovePosition(rb.position + movement * MoveSpeed * Time.fixedDeltaTime);
+        }
+        else
+        {
+            Andy.SetBool("IsWalk", false);
+            Andy.SetBool("IsAwake", false);
         }
     }
 
